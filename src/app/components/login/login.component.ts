@@ -13,7 +13,7 @@ import { NotificationService } from "src/app/services/notification.service";
 export class LoginModal {
   email: string = "";
   password: string = "";
-  
+
   static dialogRef: MatDialogRef<LoginModal, any>;
 
   constructor(
@@ -36,7 +36,24 @@ export class LoginModal {
         { style: "error" }
       );
 
-    if (!/\S+@\S+\.\S+/.test(this.email)) {
+    const sqlInjectionWords = [
+      "select",
+      "insert",
+      "from",
+      "drop",
+      "or",
+      "having",
+      "group",
+      "by",
+      "exec",
+      '"',
+      "'",
+      "--",
+    ];
+
+    const sqlError = sqlInjectionWords.find((word) => this.email.toLocaleLowerCase().includes(word));
+
+    if (!/\S+@\S+\.\S+/.test(this.email) || sqlError) {
       return this.notification.openSnackBar(
         `Email ${this.email} inválido. Digite um email válido`,
         { style: "error" }
@@ -66,7 +83,7 @@ export class LoginModal {
         LoginModal.dialogRef.close();
       })
       .catch((error) => {
-        console.error("erro ao fazer login: ", error.error)
+        console.error("erro ao fazer login: ", error.error);
         return this.notification.openSnackBar(
           `Erro ao fazer login: ${error.error}`,
           { style: "error" }
@@ -78,7 +95,7 @@ export class LoginModal {
   logout() {
     localStorage.removeItem("user");
     this.notification.openSnackBar("Logout realizado com sucesso", {
-      style: 'warning'
+      style: "warning",
     });
     LoginModal.dialogRef.close();
   }
