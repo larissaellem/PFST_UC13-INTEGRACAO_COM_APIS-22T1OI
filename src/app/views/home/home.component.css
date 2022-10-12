@@ -1,0 +1,35 @@
+.banner-img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
+
+.login {
+  animation: scale 0.5s normal 3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@media screen and (max-width: 768px) {
+  .banner-img {
+    height: auto;
+  }
+}
+
+.navigation-arrow {
+  padding: 0.35rem 0.5rem;
+  background: var(--orange-01);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.navigation-arrow:hover,
+.navigation-arrow:focus {
+  background: var(--orange-01-50);
+}
+.card-news {
+  transition: 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.card-news:hover,
+.card-news:focus {
+  transform: scale(1.01);
+}

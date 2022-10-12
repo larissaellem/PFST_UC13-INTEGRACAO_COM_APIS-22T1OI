@@ -1,0 +1,37 @@
+<nav
+  class="navbar navbar-expand-lg navbar-light px-4 py-3"
+  style="background: #fff"
+>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <i class="bi bi-list"></i>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li *ngFor="let link of links; let index = index">
+        <a class="nav-link" href="{{ link.url }}">{{ link.name }}</a>
+      </li>
+    </ul>
+  </div>
+
+  <a class="navbar-brand d-none d-sm-block" href="#">
+    <img src="/assets/img/logo.png" height="30" alt="" />
+  </a>
+  <div class="login">
+    <button
+      class="btn btn-sm btn-dark d-flex align-items-center"
+      style="background: var(--bg-home)"
+      (click)="openLoginModal()"
+    >
+      <p id="header-login-name" class="m-0 p-0 mr-1">Login</p>
+      <i class="bi bi-person"></i>
+    </button>
+  </div>
+</nav>

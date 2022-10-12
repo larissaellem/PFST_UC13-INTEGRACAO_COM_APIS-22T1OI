@@ -1,0 +1,63 @@
+:root {
+  --bg-home: #1b262c;
+  --text-color: #f1f1f1;
+  --orange-01: #e76425;
+  --orange-01-50: rgba(231, 98, 37, 0.8);
+}
+
+/* Works on Firefox */
+body {
+  scrollbar-width: thin;
+  scrollbar-color: var(--orange-01) #f1f1f1;
+  max-width: 1920px;
+  margin: 0 auto;
+  background-color: var(--bg-home);
+  color: var(--text-color);
+}
+
+/* Works on Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--orange-01);
+  border-radius: 20px;
+  border: 2px solid #f1f1f1;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: var(--orange-01-50);
+}
+
+.text-orange-1 {
+  color: var(--orange-01);
+}
+
+.bg-orange-1 {
+  background: var(--orange-01);
+}
+
+.bb-orange-1 {
+  border-bottom: 4px solid var(--orange-01);
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
