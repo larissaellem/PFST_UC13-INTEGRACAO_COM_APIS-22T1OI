@@ -1,9 +1,14 @@
 {
-  "user": [
+  "users": [
     {
       "email": "teste01editado@teste.com",
       "password": "testeeditado",
       "id": 1
+    },
+    {
+      "email": "teste01@teste.com",
+      "password": "$2a$10$7HWNq6AyDVAwKVy9vqrUcuQLl1hQrhy85E7UUs1Tq6wnpikE1OrtG",
+      "id": 2
     }
   ]
 }

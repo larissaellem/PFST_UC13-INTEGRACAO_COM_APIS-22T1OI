@@ -5,15 +5,14 @@ import { LoginModal } from "src/app/components/login/login.component";
   selector: "app-header",
   templateUrl: "./header.component.html",
 })
-export class HeaderComponent extends LoginModal implements OnInit {
-  ngOnInit() {
+export class HeaderComponent extends LoginModal {
+  get username() {
     const user = localStorage.getItem("user");
     if (user) {
-      const userData = JSON.parse(user);
-      (
-        document.querySelector("#header-login-name") as HTMLElement
-      ).textContent = "Olá, " + userData.username;
+      const { username } = JSON.parse(user);
+      return `Olá, ${username}`;
     }
+    return "Login";
   }
 
   links = [
